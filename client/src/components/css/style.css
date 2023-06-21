@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.logo {
+    bottom: 10px;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -9,32 +13,35 @@
 
 li {
     list-style: none;
+    text-decoration: none;
 }
 
 .navbar {
+    padding: 15px;
     height: 10vh;
     line-height: 10vh;
-    box-shadow: rgba(50,50, 93, 0.23)0 30px 30px -20px;
+
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     justify-content: flex-end;
     width: 75%;
+    text-decoration: none;
+
 }
 
-.container{
+.container {
     max-width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    box-shadow: rgba(50,50, 93, 0.23)0 30px 30px -20px;
 }
 
 .nav-links li {
-    color: white;
+    color: black;
     font-size: 20px;
     padding: 0 18px;
     margin: 0 10px;
@@ -43,6 +50,6 @@ li {
     text-decoration: none;
 }
 
-.nav-links{
+.nav-links {
     text-decoration: none;
 }

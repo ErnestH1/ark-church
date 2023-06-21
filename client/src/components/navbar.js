@@ -17,7 +17,7 @@ function Navbar() {
                         <Link to='/Giving'><li>GIVING</li></Link>
                         <Link to='/Squads'><li>SQUADS</li></Link>
                         <Link to='/Events'><li>EVENTS</li></Link>
-                        <Link to='/Contact'><li>Connect</li></Link>
+                        <Link to='/Contact'><li>CONNECT</li></Link>
                     </ul>
                 </div>
             </nav>
