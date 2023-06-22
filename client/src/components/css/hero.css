@@ -5,7 +5,29 @@
 
 
 
+@media (max-width:700px) {
+    .glitch {
+        position: relative;
+        font-size: 20px;
+        font-weight: 150;
+        line-height: 1.2;
+        color: #020202;
+        letter-spacing: 2.5px;
+        z-index: -1;
+    }
 
+    .glitch-wrapper {
+        width: 50%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #ffffff;
+    }
+}
+
+/* Responsive navbar end */
 
 
 

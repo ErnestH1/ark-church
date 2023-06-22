@@ -11,6 +11,15 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
 /* Navbar start */
 .navbar {
     padding: 15px;
@@ -30,8 +39,8 @@ li {
 }
 
 /* .container { */
-    /* max-width: 90%; */
-    /* margin: auto; */
+/* max-width: 90%; */
+/* margin: auto; */
 /* } */
 
 .nav-links li {
@@ -65,7 +74,7 @@ button {
 
 /* Responsive navbar start */
 
-@media (max-width:700px) {
+@media (max-width:768px) {
     .logo {
         display: flex;
         position: absolute;
@@ -86,6 +95,24 @@ button {
         transition: all 0.5s ease-in-out;
         width: 100%;
         background-color: white;
+    }
 
+    ul li {
+        padding: 3px;
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+        text-align: center;
+    }
+
+    .mobile-menu-icon {
+        position: absolute;
+        display: flex;
+        right: 20px;
+    }
+
+    .hero {
+        font-size: 50px;
     }
 }
+
+/* Responsive navbar end */
