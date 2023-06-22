@@ -38,10 +38,6 @@ a {
     width: 75%;
 }
 
-/* .container { */
-/* max-width: 90%; */
-/* margin: auto; */
-/* } */
 
 .nav-links li {
     color: black;
@@ -78,8 +74,8 @@ button {
     .logo {
         display: flex;
         position: absolute;
-        top: 15px;
-        left: 35px;
+        /* top: 15px; */
+        /* left: 35px; */
     }
 
     .nav-links {
