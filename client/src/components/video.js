@@ -4,7 +4,9 @@ function Video() {
     // fetch here
     return (
         <>
-            video
+         <div>
+            
+         </div>
         </>
     )
 }
