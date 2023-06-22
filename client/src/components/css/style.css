@@ -38,7 +38,6 @@ a {
     width: 75%;
 }
 
-
 .nav-links li {
     color: black;
     font-size: 20px;
@@ -68,14 +67,16 @@ button {
 
 /* Mobile navbar End */
 
+
+
 /* Responsive navbar start */
 
 @media (max-width:768px) {
     .logo {
-        display: flex;
-        position: absolute;
-        /* top: 15px; */
-        /* left: 35px; */
+        /* display: flex; */
+        /* position: absolute; */
+        width: 75px;
+        height: 75px;
     }
 
     .nav-links {
@@ -110,5 +111,5 @@ button {
         font-size: 50px;
     }
 }
-
 /* Responsive navbar end */
+
