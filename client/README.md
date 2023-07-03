@@ -77,11 +77,11 @@ Clone the repository:
 ## Authors
 
 - [Alex Tunui](https://github.com/AlexTanui)
-- [Ernest Hanson](https://github.com/)
+- [Ernest Hanson](https://github.com/ErnestH1)
 - [Casey Ochieng](https://github.com/caseyochieng)
-- [Andrew Kimani](https://github.com/)
-- [Collins Koech](https://github.com/)
-- [Faith Moraa](https://github.com/)
+- [Andrew Kimani](https://github.com/Nexus-coder)
+- [Collins Koech](https://github.com/collinsvictor1818)
+- [Faith Moraa](https://github.com/the-datageek)
 - [Mark ](http://github.com/Towerofdragons)
 
 ## Conclusion
