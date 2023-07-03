@@ -5,16 +5,10 @@ function Hero() {
 
     return (
         <>
-
+            <Slide />
         </>
     )
 }
 
 export default Hero
 
-{/* <section className='hero'> */ }
-{/* <Slide /> */ }
-{/* <div className="glitch-wrapper"> */ }
-{/* <div className="glitch" data-glitch="ARK YOUTH CHURCH">ARK YOUTH CHURCH</div> */ }
-// </div>
-// </section>

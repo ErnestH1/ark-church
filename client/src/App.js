@@ -6,7 +6,8 @@ import Sermons from '../src/screens/sermons';
 import Giving from '../src/screens/giving';
 import Events from '../src/screens/events';
 import Contact from '../src/screens/contact';
-// import Navbar from './components/navbar';
+import Signup from '../src/screens/signup';
+import Login from '../src/screens/login';
 import Squads from './screens/squads';
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
           <Route path="/Giving" element={<Giving />} />
           <Route path="/Events" element={<Events />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/contact" element={<Squads />} />
+          <Route path="/squads" element={<Squads />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<Signup />} />
         </Routes>
       </>
     </Router>

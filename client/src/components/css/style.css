@@ -23,8 +23,8 @@ a {
 /* Navbar start */
 .navbar {
     padding: 15px;
-    height: 10vh;
-    line-height: 10vh;
+    height: 4vh;
+    line-height: 6vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,6 +51,22 @@ a {
     text-decoration: none;
 }
 
+/* login icons */
+.icons {
+    color: black;
+    font-size: 20px;
+    padding: 0 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+/* login hover icons */
+.icons:hover {
+    color: black;
+    scale: 1.5;
+}
+
 /* Navbar end */
 
 /* Mobile navbar start */
@@ -64,6 +80,7 @@ button {
 .mobile-menu-icon {
     display: none;
 }
+
 /* Mobile navbar End */
 
 /* Underline effect on navbar start */

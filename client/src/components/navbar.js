@@ -5,6 +5,8 @@ import './css/style.css'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa'
 import { ImCross } from 'react-icons/im'
+import { FaUserCircle } from 'react-icons/fa'
+
 
 function Navbar() {
     //The useState function is used to set the state of the Mobile variable
@@ -13,7 +15,7 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className='logo'>
-                <Link to='/landingpage'>
+                <Link to='/Landingpage'>
                     <img src={Logo} className='logo' alt="logo" />
                 </Link>
             </div>
@@ -24,6 +26,7 @@ function Navbar() {
                 <Link to='/Squads'><li className='nav-items hover-underline-animation'>SQUADS</li></Link>
                 <Link to='/Events'><li className='nav-items hover-underline-animation'>EVENTS</li></Link>
                 <Link to='/Contact'><li className='nav-items hover-underline-animation'>CONNECT</li></Link>
+                <Link to='/Login'><li className='nav-items icons'><FaUserCircle /></li></Link>
             </ul>
             {/* The links End here */}
             <button className='mobile-menu-icon' onClick={() => setMobile(!Mobile)}>
