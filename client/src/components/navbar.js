@@ -19,11 +19,11 @@ function Navbar() {
             </div>
             {/* The links Start here */}
             <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
-                <Link to='/Sermons'><li className='nav-items'>SERMONS</li></Link>
-                <Link to='/Giving'><li className='nav-items'>GIVING</li></Link>
-                <Link to='/Squads'><li className='nav-items'>SQUADS</li></Link>
-                <Link to='/Events'><li className='nav-items'>EVENTS</li></Link>
-                <Link to='/Contact'><li className='nav-items'>CONNECT</li></Link>
+                <Link to='/Sermons'><li className='nav-items hover-underline-animation'>SERMONS</li></Link>
+                <Link to='/Giving'><li className='nav-items hover-underline-animation'>GIVING</li></Link>
+                <Link to='/Squads'><li className='nav-items hover-underline-animation'>SQUADS</li></Link>
+                <Link to='/Events'><li className='nav-items hover-underline-animation'>EVENTS</li></Link>
+                <Link to='/Contact'><li className='nav-items hover-underline-animation'>CONNECT</li></Link>
             </ul>
             {/* The links End here */}
             <button className='mobile-menu-icon' onClick={() => setMobile(!Mobile)}>
