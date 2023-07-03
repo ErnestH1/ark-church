@@ -1,13 +1,13 @@
-# ARK-CHURCH
+# ARK-YOUTH-CHURCH
 
 ## Links
 
-- [deployed api](/)
-- [LIve link](/)
+- [Deployed api](/)
+- [Live link](/)
 
-## ARK-CHURCH Frontend
+## ARK-CHURCH FRONTEND 
 
-The frontend is a responsive web application optimized for both desktop and mobile devices. It uses React, React Router, Axios, Tailwindcss, and Font Awesome to provide the following functionalities to the users:
+* The frontend is a responsive web application optimized for both desktop and mobile devices. It uses React, React Router, Axios, Tailwindcss, and Font Awesome to provide the following functionalities to the users:
 
 - View the details of the frontend
 
@@ -20,19 +20,26 @@ The frontend is a responsive web application optimized for both desktop and mobi
 
 #### It also includes
 
-- an admin section where users with administrative privileges can add, edit, and delete products.
+- An admin section where users with administrative privileges can add, edit, and delete.
 
-## ARK-CHURCH Backend
+# ARK-CHURCH BACKEND
 
-The backend is built with Ruby on Rails and uses PostgreSQL as the database and RSpec as the testing framework. It provides several API endpoints that the frontend uses to retrieve and manipulate data. The models used in the backend are:
+The backend is built with Fast api and uses PostgreSQL as the databas. It provides several API endpoints that the frontend uses to retrieve and manipulate data. The models used in the backend are:
 
-### Setup
+### Authentication
+- The User can login and signup to the website to access features
+### Podcast
+### Videos
+
+
+
+## Setup
 
 To set up the ARK-CHURCH backend, follow these steps:
 
 Clone the repository:
 
-       git clone https://github.com/CaseyOchieng/ArkChurch
+       https://github.com/ErnestH1/ark-church
 
 ### Install dependencies
 
@@ -43,7 +50,6 @@ Clone the repository:
     rake db:create
     rake db:migrate
     Seed the database:
-    Copy code
     rake db:seed
 
 ### Start the server
@@ -54,7 +60,7 @@ Clone the repository:
 
 #### Clone the repository
 
-    https://github.com/CaseyOchieng/ArkChurch/tree/master/api
+    https://github.com/ErnestH1/ark-church
 
 #### Install dependencies
 
@@ -70,10 +76,12 @@ Clone the repository:
 
 ## Authors
 
+- [Alex Tunui](https://github.com/AlexTanui)
 - [Ernest Hanson](https://github.com/)
-- [Casey Ochieng](https://github.com/)
+- [Casey Ochieng](https://github.com/caseyochieng)
 - [Andrew Kimani](https://github.com/)
 - [Collins Koech](https://github.com/)
 - [Faith Moraa](https://github.com/)
-- [Mark ](https://github.com/)
+- [Mark ](http://github.com/Towerofdragons)
+
 ## Conclusion
