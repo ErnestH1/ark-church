@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# ARK-YOUTH-CHURCH
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Links
 
-## Available Scripts
+- [Deployed api](/)
+- [Live link](/)
 
-In the project directory, you can run:
+## ARK-CHURCH FRONTEND 
 
-### `npm start`
+* The frontend is a responsive web application optimized for both desktop and mobile devices. It uses React, React Router, Axios, Tailwindcss, and Font Awesome to provide the following functionalities to the users:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- View the details of the frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### The app includes several user pages, including
 
-### `npm test`
+- landing page.
+- Event page.
+- Squad page.
+- About page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### It also includes
 
-### `npm run build`
+- An admin section where users with administrative privileges can add, edit, and delete.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# ARK-CHURCH BACKEND
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The backend is built with Fast api and uses PostgreSQL as the databas. It provides several API endpoints that the frontend uses to retrieve and manipulate data. The models used in the backend are:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Authentication
+- The User can login and signup to the website to access features
+### Podcast
+### Videos
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To set up the ARK-CHURCH backend, follow these steps:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Clone the repository:
 
-## Learn More
+       https://github.com/ErnestH1/ark-church
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Install dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    bundle install
 
-### Code Splitting
+### Create and migrate the database
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    rake db:create
+    rake db:migrate
+    Seed the database:
+    rake db:seed
 
-### Analyzing the Bundle Size
+### Start the server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    rails s
 
-### Making a Progressive Web App
+## To set up theARK-CHURCH frontend, follow these steps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Clone the repository
 
-### Advanced Configuration
+    https://github.com/ErnestH1/ark-church
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Install dependencies
 
-### Deployment
+    npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Start the development server
 
-### `npm run build` fails to minify
+    npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Build the production version
+
+    npm run build
+
+## Authors
+
+- [Alex Tunui](https://github.com/AlexTanui)
+- [Ernest Hanson](https://github.com/ErnestH1)
+- [Casey Ochieng](https://github.com/caseyochieng)
+- [Andrew Kimani](https://github.com/Nexus-coder)
+- [Collins Koech](https://github.com/collinsvictor1818)
+- [Faith Moraa](https://github.com/the-datageek)
+- [Mark ](http://github.com/Towerofdragons)
+
+## Conclusion

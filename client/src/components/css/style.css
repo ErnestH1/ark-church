@@ -11,38 +11,146 @@ li {
     list-style: none;
 }
 
-.navbar {
-    height: 10vh;
-    line-height: 10vh;
-    box-shadow: rgba(50,50, 93, 0.23)0 30px 30px -20px;
+a {
+    text-decoration: none;
 }
 
-.nav-links{
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
+/* Navbar start */
+.navbar {
+    padding: 15px;
+    height: 4vh;
+    line-height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+
+}
+
+.nav-links {
     display: flex;
     justify-content: flex-end;
     width: 75%;
 }
 
-.container{
-    max-width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 10vh;
-    box-shadow: rgba(50,50, 93, 0.23)0 30px 30px -20px;
-}
-
 .nav-links li {
-    color: white;
+    color: black;
     font-size: 20px;
     padding: 0 18px;
     margin: 0 10px;
     cursor: pointer;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
+}
+
+.nav-links .nav-items {
     text-decoration: none;
 }
 
-.nav-links{
-    text-decoration: none;
+/* login icons */
+.icons {
+    color: black;
+    font-size: 20px;
+    padding: 0 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 1s ease;
 }
+
+/* login hover icons */
+.icons:hover {
+    color: black;
+    scale: 1.5;
+}
+
+/* Navbar end */
+
+/* Mobile navbar start */
+
+button {
+    border: none;
+    background: none;
+    font-size: 20px;
+}
+
+.mobile-menu-icon {
+    display: none;
+}
+
+/* Mobile navbar End */
+
+/* Underline effect on navbar start */
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Underline effect on navbar End */
+
+/* Responsive navbar start */
+
+@media (max-width:768px) {
+    .logo {
+        /* display: flex; */
+        /* position: absolute; */
+        width: 75px;
+        height: 75px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links-mobile {
+        position: absolute;
+        display: block;
+        list-style: none;
+        box-shadow: rgba(50, 50, 93, 0.93)0 30px 30px -20px;
+        left: 0;
+        transition: all 0.5s ease-in-out;
+        width: 100%;
+        background-color: white;
+    }
+
+    ul li {
+        padding: 3px;
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+        text-align: center;
+    }
+
+    .mobile-menu-icon {
+        position: absolute;
+        display: flex;
+        right: 20px;
+    }
+
+    .hero {
+        font-size: 50px;
+    }
+}
+
+/* Responsive navbar end */
