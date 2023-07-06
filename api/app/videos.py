@@ -111,6 +111,7 @@ from .database import get_db
 from .models import Video
 from pydantic import BaseModel
 from fastapi import Depends
+from .storage import email,password
 
 
 router = APIRouter(tags=["Videos"])
