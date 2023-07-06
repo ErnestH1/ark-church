@@ -1,8 +1,9 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from pydantic import BaseModel, Field
+from sqlalchemy.orm import registry
 
 Base = declarative_base()
+mapper_registry = registry()
 
 class User(Base):
     __tablename__ = "users"
@@ -11,6 +12,7 @@ class User(Base):
     username: str = Column(String, unique=True, index=True)
     password: str = Column(String)
 
+
 class PasswordReset(Base):
     __tablename__ = "password_resets"
 
@@ -18,16 +20,18 @@ class PasswordReset(Base):
     email: str = Column(String, unique=True, index=True)
     token: str = Column(String)
 
-class Video(BaseModel):
-    id: int = Field(..., title="Video ID")
-    title: str = Field(..., title="Video Title")
-    description: str = Field(..., title="Video Description")
+class Video(Base):
+    __tablename__ = "videos"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String)
+    description = Column(String)
 
 
-class Podcast(BaseModel):
+class Podcast(Base):
     __tablename__ = "podcasts"
 
-    id: int = Field(..., title="Podcast ID")
-    title: str = Field(..., title="Podcast Title")
-    description: str = Field(..., title="Podcast Description")
-    file_path: str = Field(..., title="Podcast File Path")
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String)
+    description = Column(String)
+    file_path = Column(String)

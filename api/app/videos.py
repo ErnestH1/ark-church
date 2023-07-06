@@ -1,79 +1,202 @@
-import os
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+# from sqlalchemy.orm import Session
+# from fastapi import UploadFile
+# import os
+# from typing import List
+# from fastapi import APIRouter
+# from .database import get_db
+# from .models import Video
+# from pydantic import BaseModel
+# from fastapi import Depends
+
+
+# router = APIRouter(tags=["Videos"])
+
+
+# class VideoCreate(BaseModel):
+#     title: str
+#     description: str
+
+
+# class VideoUpdate(BaseModel):
+#     title: str
+#     description: str
+
+
+# class VideoResponse(BaseModel):
+#     id: int
+#     title: str
+#     description: str
+
+
+# @router.post("/videos", response_model=VideoResponse)
+# def create_video(video: VideoCreate, video_file: UploadFile, db: Session = Depends(get_db)) -> VideoResponse:
+#     video_db = Video(title=video.title, description=video.description)
+#     db.add(video_db)
+#     db.commit()
+#     db.refresh(video_db)
+
+#     # Save video file
+#     save_video_file(video_file, video_db.id)
+
+#     return VideoResponse(id=video_db.id, title=video_db.title, description=video_db.description)
+
+
+# @router.get("/videos/{video_id}", response_model=VideoResponse)
+# def get_video(video_id: int, db: Session = Depends(get_db)) -> VideoResponse:
+#     video_db = db.query(Video).filter(Video.id == video_id).first()
+#     if not video_db:
+#         return {"message": "Video not found"}
+
+#     return VideoResponse(id=video_db.id, title=video_db.title, description=video_db.description)
+
+
+# @router.put("/videos/{video_id}", response_model=VideoResponse)
+# def update_video(video_id: int, video: VideoUpdate, db: Session = Depends(get_db)) -> VideoResponse:
+#     video_db = db.query(Video).filter(Video.id == video_id).first()
+#     if not video_db:
+#         return {"message": "Video not found"}
+
+#     if video.title:
+#         video_db.title = video.title
+#     if video.description:
+#         video_db.description = video.description
+
+#     db.commit()
+#     db.refresh(video_db)
+
+#     return VideoResponse(id=video_db.id, title=video_db.title, description=video_db.description)
+
+
+# @router.delete("/videos/{video_id}")
+# def delete_video(video_id: int, db: Session = Depends(get_db)):
+#     video_db = db.query(Video).filter(Video.id == video_id).first()
+#     if not video_db:
+#         return {"message": "Video not found"}
+
+#     db.delete(video_db)
+#     db.commit()
+#     delete_video_file(video_db.id)
+
+
+# @router.get("/videos", response_model=List[VideoResponse])
+# def fetch_all_videos(db: Session = Depends(get_db)) -> List[VideoResponse]:
+#     videos = db.query(Video).all()
+#     return [
+#         VideoResponse(id=video.id, title=video.title, description=video.description)
+#         for video in videos
+#     ]
+
+
+# def save_video_file(video_file: UploadFile, video_id: int):
+#     # Adjust the file save path and logic according to your requirements
+#     file_path = f"videos/{video_id}.mp4"
+#     with open(file_path, "wb") as file:
+#         file.write(video_file.file.read())
+
+
+# def delete_video_file(video_id: int):
+#     # Adjust the file delete logic according to your requirements
+#     file_path = f"videos/{video_id}.mp4"
+#     if os.path.exists(file_path):
+#         os.remove(file_path)
+
+
 from sqlalchemy.orm import Session
-from app.models import Video
-from app.database import get_db
-from fastapi.responses import FileResponse
+from mega import Mega
+from fastapi import UploadFile
+import os
+from typing import List
+from fastapi import APIRouter
+from .database import get_db
+from .models import Video
+from pydantic import BaseModel
+from fastapi import Depends
+
 
 router = APIRouter(tags=["Videos"])
 
-# Function to retrieve all videos
-@router.get("/videos")
-def get_videos(db: Session = Depends(get_db)):
-    videos = db.query(Video).all()
-    return videos
+mega = Mega()
+m = mega.login(email, password)
 
-# Function to retrieve a single video by ID
-@router.get("/videos/{video_id}")
-def get_video(video_id: int, db: Session = Depends(get_db)):
-    video = db.query(Video).filter(Video.id == video_id).first()
-    if not video:
-        raise HTTPException(status_code=404, detail="Video not found")
-    return video
 
-# Function to create a new video
-@router.post("/videos")
-def create_video(
-    video: UploadFile = File(...),
-    title: str = Form(...),
-    description: str = Form(...),
-    db: Session = Depends(get_db),
-):
-    # Generate a unique filename based on title
-    filename = f"{title}.mp4"
-    video_path = os.path.join("videos", filename)
+class VideoCreate(BaseModel):
+    title: str
+    description: str
 
-    # Save the video file to disk
-    with open(video_path, "wb") as f:
-        f.write(video.file.read())
 
-    # Create a Video object with the necessary metadata
-    new_video = Video(title=title, description=description, file_path=video_path)
-    db.add(new_video)
+class VideoUpdate(BaseModel):
+    title: str
+    description: str
+
+
+class VideoResponse(BaseModel):
+    id: int
+    title: str
+    description: str
+
+
+@router.post("/videos", response_model=VideoResponse)
+def create_video(video: VideoCreate, video_file: UploadFile, db: Session = Depends(get_db)) -> VideoResponse:
+    video_db = Video(title=video.title, description=video.description)
+    db.add(video_db)
     db.commit()
-    db.refresh(new_video)
-    return new_video
+    db.refresh(video_db)
 
-# Function to update an existing video
-@router.put("/videos/{video_id}")
-def update_video(video_id: int, updated_video: Video, db: Session = Depends(get_db)):
-    video = db.query(Video).filter(Video.id == video_id).first()
-    if not video:
-        raise HTTPException(status_code=404, detail="Video not found")
-    video.title = updated_video.title
-    video.description = updated_video.description
+    # Upload video file to Mega
+    file_path = f"videos/{video_db.id}.mp4"
+    m.upload(video_file.file, file_path)
+
+    return VideoResponse(id=video_db.id, title=video_db.title, description=video_db.description)
+
+
+@router.get("/videos/{video_id}", response_model=VideoResponse)
+def get_video(video_id: int, db: Session = Depends(get_db)) -> VideoResponse:
+    video_db = db.query(Video).filter(Video.id == video_id).first()
+    if not video_db:
+        return {"message": "Video not found"}
+
+    # Download video file from Mega
+    file_path = f"videos/{video_id}.mp4"
+    m.download(file_path, f"downloads/{video_id}.mp4")
+
+    return VideoResponse(id=video_db.id, title=video_db.title, description=video_db.description)
+
+
+@router.put("/videos/{video_id}", response_model=VideoResponse)
+def update_video(video_id: int, video: VideoUpdate, db: Session = Depends(get_db)) -> VideoResponse:
+    video_db = db.query(Video).filter(Video.id == video_id).first()
+    if not video_db:
+        return {"message": "Video not found"}
+
+    if video.title:
+        video_db.title = video.title
+    if video.description:
+        video_db.description = video.description
+
     db.commit()
-    return {"message": "Video updated successfully"}
+    db.refresh(video_db)
 
-# Function to delete a video
+    return VideoResponse(id=video_db.id, title=video_db.title, description=video_db.description)
+
+
 @router.delete("/videos/{video_id}")
 def delete_video(video_id: int, db: Session = Depends(get_db)):
-    video = db.query(Video).filter(Video.id == video_id).first()
-    if not video:
-        raise HTTPException(status_code=404, detail="Video not found")
-    db.delete(video)
+    video_db = db.query(Video).filter(Video.id == video_id).first()
+    if not video_db:
+        return {"message": "Video not found"}
+
+    db.delete(video_db)
     db.commit()
-    return {"message": "Video deleted successfully"}
 
-# Function to download a video
-@router.get("/videos/{video_id}/download")
-def download_video(video_id: int, db: Session = Depends(get_db)):
-    video = db.query(Video).filter(Video.id == video_id).first()
-    if not video:
-        raise HTTPException(status_code=404, detail="Video not found")
-    
-    # Read the video file contents from the database or storage
-    with open(video.file_path, "rb") as f:
-        file_content = f.read()
+    # Delete video file from Mega
+    file_path = f"videos/{video_id}.mp4"
+    m.delete(file_path)
 
-    return FileResponse(video.file_path, media_type="video/mp4", filename=video.title + ".mp4")
+
+@router.get("/videos", response_model=List[VideoResponse])
+def fetch_all_videos(db: Session = Depends(get_db)) -> List[VideoResponse]:
+    videos = db.query(Video).all()
+    return [
+        VideoResponse(id=video.id, title=video.title, description=video.description)
+        for video in videos
+    ]

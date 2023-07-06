@@ -1,86 +1,177 @@
-import os
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+# from fastapi import APIRouter, Depends, File, UploadFile
+# from sqlalchemy.orm import Session
+# from typing import List
+
+# from .models import Podcast
+# from .database import get_db
+
+# router = APIRouter(tags=["Podcasts"])
+
+# @router.post("/podcasts")
+# def create_podcast(
+#     title: str,
+#     description: str,
+#     podcast_file: UploadFile = File(...),
+#     db: Session = Depends(get_db)
+# ):
+#     file_path = f"uploads/{podcast_file.filename}"
+#     with open(file_path, "wb") as file:
+#         file.write(podcast_file.file.read())
+
+#     podcast = Podcast(
+#         title=title,
+#         description=description,
+#         file_path=file_path
+#     )
+#     db.add(podcast)
+#     db.commit()
+#     db.refresh(podcast)
+#     return podcast
+
+
+# @router.get("/podcasts/{podcast_id}")
+# def get_podcast(podcast_id: int, db: Session = Depends(get_db)):
+#     return db.query(Podcast).filter(Podcast.id == podcast_id).first()
+
+
+# @router.put("/podcasts/{podcast_id}")
+# def update_podcast(
+#     podcast_id: int,
+#     title: str = None,
+#     description: str = None,
+#     podcast_file: UploadFile = File(None),
+#     db: Session = Depends(get_db)
+# ):
+#     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
+#     if not podcast:
+#         return {"error": "Podcast not found"}
+
+#     if podcast_file:
+#         file_path = f"uploads/{podcast_file.filename}"
+#         with open(file_path, "wb") as file:
+#             file.write(podcast_file.file.read())
+#         podcast.file_path = file_path
+
+#     if title:
+#         podcast.title = title
+#     if description:
+#         podcast.description = description
+
+#     db.commit()
+#     db.refresh(podcast)
+#     return podcast
+
+
+# @router.delete("/podcasts/{podcast_id}")
+# def delete_podcast(podcast_id: int, db: Session = Depends(get_db)):
+#     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
+#     if not podcast:
+#         return {"error": "Podcast not found"}
+
+#     db.delete(podcast)
+#     db.commit()
+
+#     return {"message": "Podcast deleted"}
+
+
+# @router.get("/podcasts")
+# def fetch_all_podcasts(db: Session = Depends(get_db)):
+#     return db.query(Podcast).all()
+
+
+
+from fastapi import APIRouter, Depends, File, UploadFile
+from mega import Mega
 from sqlalchemy.orm import Session
-from app.models import Podcast
-from app.database import get_db
-from fastapi.responses import FileResponse
+from typing import List
+
+from .models import Podcast
+from .database import get_db
 
 router = APIRouter(tags=["Podcasts"])
 
-# Function to retrieve all podcasts
-@router.get("/podcasts")
-def get_podcasts(db: Session = Depends(get_db)):
-    podcasts = db.query(Podcast).all()
-    return podcasts
+mega = Mega()
+m = mega.login(email, password)
 
-# Function to retrieve a single podcast by ID
+@router.post("/podcasts")
+def create_podcast(
+    title: str,
+    description: str,
+    podcast_file: UploadFile = File(...),
+    db: Session = Depends(get_db)
+):
+    # Upload file to Mega
+    file_path = f"uploads/{podcast_file.filename}"
+    m.upload(podcast_file.file, file_path)
+
+    podcast = Podcast(
+        title=title,
+        description=description,
+        file_path=file_path
+    )
+    db.add(podcast)
+    db.commit()
+    db.refresh(podcast)
+    return podcast
+
+
 @router.get("/podcasts/{podcast_id}")
 def get_podcast(podcast_id: int, db: Session = Depends(get_db)):
     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
     if not podcast:
-        raise HTTPException(status_code=404, detail="Podcast not found")
+        return {"error": "Podcast not found"}
+
+    # Download file from Mega
+    file_path = podcast.file_path
+    m.download(file_path, f"downloads/{podcast_id}.mp3")
+
     return podcast
 
-# Function to create a new podcast
-@router.post("/podcasts")
-def create_podcast(
-    podcast: UploadFile = File(...),
-    title: str = Form(...),
-    description: str = Form(...),
-    db: Session = Depends(get_db),
-):
-    # Save the podcast file to disk
-    extension = os.path.splitext(podcast.filename)[1]
-    podcast_path = os.path.join("podcasts", f"{title}{extension}")
-    with open(podcast_path, "wb") as f:
-        f.write(podcast.file.read())
 
-    # Create a Podcast object with the necessary metadata
-    new_podcast = Podcast(title=title, description=description, file_path=podcast_path)
-    db.add(new_podcast)
-    db.commit()
-    db.refresh(new_podcast)
-    return new_podcast
-
-# Function to update an existing podcast
 @router.put("/podcasts/{podcast_id}")
-def update_podcast(podcast_id: int, updated_podcast: Podcast, db: Session = Depends(get_db)):
+def update_podcast(
+    podcast_id: int,
+    title: str = None,
+    description: str = None,
+    podcast_file: UploadFile = File(None),
+    db: Session = Depends(get_db)
+):
     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
     if not podcast:
-        raise HTTPException(status_code=404, detail="Podcast not found")
-    podcast.title = updated_podcast.title
-    podcast.description = updated_podcast.description
-    db.commit()
-    return {"message": "Podcast updated successfully"}
+        return {"error": "Podcast not found"}
 
-# Function to delete a podcast
+    if podcast_file:
+        # Upload new file to Mega
+        file_path = f"uploads/{podcast_file.filename}"
+        m.upload(podcast_file.file, file_path)
+        podcast.file_path = file_path
+
+    if title:
+        podcast.title = title
+    if description:
+        podcast.description = description
+
+    db.commit()
+    db.refresh(podcast)
+    return podcast
+
+
 @router.delete("/podcasts/{podcast_id}")
 def delete_podcast(podcast_id: int, db: Session = Depends(get_db)):
     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
     if not podcast:
-        raise HTTPException(status_code=404, detail="Podcast not found")
+        return {"error": "Podcast not found"}
+
+    # Delete file from Mega
+    file_path = podcast.file_path
+    m.delete(file_path)
+
     db.delete(podcast)
     db.commit()
-    return {"message": "Podcast deleted successfully"}
 
-# Function to download a podcast
-@router.get("/podcasts/{podcast_id}/download")
-def download_podcast(podcast_id: int, db: Session = Depends(get_db)):
-    podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
-    if not podcast:
-        raise HTTPException(status_code=404, detail="Podcast not found")
+    return {"message": "Podcast deleted"}
 
-    # Read the podcast file contents from the database or storage
-    with open(podcast.file_path, "rb") as f:
-        file_content = f.read()
 
-    # Determine the appropriate media type based on the file extension
-    extension = os.path.splitext(podcast.file_path)[1]
-    if extension == ".mp3":
-        media_type = "audio/mpeg"
-    elif extension == ".wav":
-        media_type = "audio/wav"
-    else:
-        media_type = "application/octet-stream"
-
-    return FileResponse(podcast.file_path, media_type=media_type, filename=podcast.title + extension)
+@router.get("/podcasts")
+def fetch_all_podcasts(db: Session = Depends(get_db)):
+    return db.query(Podcast).all()
