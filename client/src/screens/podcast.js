@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 
-function Contact() {
+function Podcast() {
   return (
     <>
       <Navbar/>
@@ -9,4 +9,4 @@ function Contact() {
   )
 }
 
-export default Contact
+export default Podcast

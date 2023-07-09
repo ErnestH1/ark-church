@@ -5,9 +5,9 @@ import Landingpage from '../src/screens/landingpage';
 import Sermons from '../src/screens/sermons';
 import Giving from '../src/screens/giving';
 import Events from '../src/screens/events';
-import Contact from '../src/screens/contact';
+import Podcast from './screens/podcast';
 import Signup from '../src/screens/signup';
-import Login from '../src/screens/login';
+import Login from './screens/login';
 import Squads from './screens/squads';
 
 function App() {
@@ -16,13 +16,13 @@ function App() {
       <>
         <Routes>
           <Route path="/" element={<Landingpage />} />
-          <Route path="/Sermons" element={<Sermons />} />
-          <Route path="/Giving" element={<Giving />} />
-          <Route path="/Events" element={<Events />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/squads" element={<Squads />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/SignUp" element={<Signup />} />
+          <Route path="/SERMONS" element={<Sermons />} />
+          <Route path="/GIVING" element={<Giving />} />
+          <Route path="/EVENTS" element={<Events />} />
+          <Route path="/PODCAST" element={<Podcast />} />
+          <Route path="/SQUADS" element={<Squads />} />
+          <Route path="/LOGIN" element={<Login />} />
+          <Route path="/SIGNUP" element={<Signup />} />
         </Routes>
       </>
     </Router>

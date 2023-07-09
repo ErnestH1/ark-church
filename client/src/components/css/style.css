@@ -23,8 +23,8 @@ a {
 /* Navbar start */
 .navbar {
     padding: 15px;
-    height: 4vh;
-    line-height: 6vh;
+    /* height: 4vh; */
+    /* line-height: 6vh; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,11 +40,10 @@ a {
 
 .nav-links li {
     color: black;
-    font-size: 20px;
-    padding: 0 18px;
+    font-size: 1em;
+    padding: 0 1px;
     margin: 0 10px;
     cursor: pointer;
-    /* text-transform: capitalize; */
 }
 
 .nav-links .nav-items {
@@ -87,7 +86,7 @@ button {
 .hover-underline-animation {
     display: inline-block;
     position: relative;
-    color: #0087ca;
+    color: black;
 }
 
 .hover-underline-animation::after {
@@ -101,6 +100,7 @@ button {
     background-color: black;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
+    /* linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%) */
 }
 
 .hover-underline-animation:hover::after {
@@ -337,10 +337,10 @@ button {
 /* New responsive navbar */
 @media (max-width:393px) {
     .logo {
-        /* display: flex; */
-        /* position: absolute; */
-        width: 75px;
-        height: 75px;
+        display: flex;
+        position: absolute;
+        width: 45px;
+        height: 45px;
     }
 
     .nav-links {
@@ -359,7 +359,7 @@ button {
     }
 
     ul li {
-        padding: 3px;
+        padding: 1.5px;
         width: 100%;
         transition: all 0.5s ease-in-out;
         text-align: center;
