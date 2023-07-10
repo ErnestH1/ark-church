@@ -15,18 +15,18 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className='logo'>
-                <Link to='/Landingpage'>
+                <Link to='/'>
                     <img src={Logo} className='logo' alt="logo" />
                 </Link>
             </div>
             {/* The links Start here */}
             <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
-                <Link to='/Sermons'><li className='nav-items hover-underline-animation'>SERMONS</li></Link>
-                <Link to='/Giving'><li className='nav-items hover-underline-animation'>GIVING</li></Link>
-                <Link to='/Squads'><li className='nav-items hover-underline-animation'>SQUADS</li></Link>
-                <Link to='/Events'><li className='nav-items hover-underline-animation'>EVENTS</li></Link>
-                <Link to='/Contact'><li className='nav-items hover-underline-animation'>CONNECT</li></Link>
-                <Link to='/Login'><li className='nav-items icons'><FaUserCircle /></li></Link>
+                <Link to='/SERMONS'><li className='nav-items hover-underline-animation'>SERMONS</li></Link>
+                <Link to='/GIVING'><li className='nav-items hover-underline-animation'>GIVING</li></Link>
+                <Link to='/EVENTS'><li className='nav-items hover-underline-animation'>SQUADS</li></Link>
+                <Link to='/PODCAST'><li className='nav-items hover-underline-animation'>EVENTS</li></Link>
+                <Link to='/SQUADS'><li className='nav-items hover-underline-animation'>PODCAST</li></Link>
+                <Link to='/LOGIN'><li className='nav-items icons'><FaUserCircle /></li></Link>
             </ul>
             {/* The links End here */}
             <button className='mobile-menu-icon' onClick={() => setMobile(!Mobile)}>

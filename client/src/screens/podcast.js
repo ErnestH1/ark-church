@@ -1,13 +1,12 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 
-function Sermons() {
+function Podcast() {
   return (
     <>
-    <Navbar/>
-      Sermons
+      <Navbar/>
     </>
   )
 }
 
-export default Sermons
+export default Podcast
