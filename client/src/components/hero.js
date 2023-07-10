@@ -5,7 +5,7 @@ function Hero() {
 
     return (
         <div className='w-full h-screen relative'>
-            <img src={HeroImg} alt="" className='w-full h-full object-cover' />
+            <img src={HeroImg} alt="" className='mx-auto ' />
         </div>
     )
 }
