@@ -2,7 +2,7 @@ import React from 'react'
 
 function ArkChurch() {
   return (
-    <div>arkChurch</div>
+    <div className=''>arkChurch</div>
   )
 }
 
