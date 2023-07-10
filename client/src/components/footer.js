@@ -24,9 +24,9 @@ function Footer() {
                         <h2>Support</h2>
                     </div>
                     <div className='sec quicklinks'>
-                        <h2>Shop</h2>
-                        <ul className='sci'>
-
+                        <h1>Shop</h1>
+                        <ul>
+<li></li>
                         </ul>
                     </div>
                     <div className='sec contact'>
