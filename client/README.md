@@ -108,6 +108,10 @@ Clone the repository:
 - [Collins Koech](https://github.com/collinsvictor1818)
 - [Faith Moraa](https://github.com/the-datageek)
 - [Mark](http://github.com/Towerofdragons)
+- [Collins Kinoti]()
+- [Aloo]()
+
+
 
 ## Conclusion
 
