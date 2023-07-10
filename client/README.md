@@ -24,13 +24,13 @@
 - [ ] About page.
 ![Signed Up](./src/assets/screenshots/)
 ------;
-- [ ] Login page.
+- [x] Login page.
 ![Signed Up](./src/assets/screenshots/login.png)
 ---;
 - [x] Signup page.
 ![Signed Up](./src/assets/screenshots/signup.png)
 ---;
-- [x] Contact Us page.
+- [ ] Contact Us page.
 ![Signed Up](./src/assets/screenshots/)
 
 --------------------------------
@@ -48,7 +48,7 @@ The backend is built with Fast api and uses PostgreSQL as the database. It provi
 
 ### Authentication
 
-- The User can login and signup to the website to access features
+- The User can login and sign up to the website to access features
 
 ### Podcast
 
@@ -108,6 +108,10 @@ Clone the repository:
 - [Collins Koech](https://github.com/collinsvictor1818)
 - [Faith Moraa](https://github.com/the-datageek)
 - [Mark](http://github.com/Towerofdragons)
+- [Collins Kinoti]()
+- [Aloo]()
+
+
 
 ## Conclusion
 
