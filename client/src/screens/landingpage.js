@@ -6,12 +6,12 @@ import Footer from '../components/footer'
 import ArkChurch from '../components/arkChurch'
 function Landingpage() {
     return (
-        <>
+        <div>
         <Navbar/>
         <Hero/>
         <ArkChurch/>
         <Footer/>
-        </>
+        </div>
     )
 }
 
