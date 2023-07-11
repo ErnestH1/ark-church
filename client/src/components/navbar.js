@@ -23,9 +23,9 @@ function Navbar() {
             <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
                 <Link to='/SERMONS'><li className='nav-items hover-underline-animation'>SERMONS</li></Link>
                 <Link to='/GIVING'><li className='nav-items hover-underline-animation'>GIVING</li></Link>
-                <Link to='/EVENTS'><li className='nav-items hover-underline-animation'>SQUADS</li></Link>
-                <Link to='/PODCAST'><li className='nav-items hover-underline-animation'>EVENTS</li></Link>
-                <Link to='/SQUADS'><li className='nav-items hover-underline-animation'>PODCAST</li></Link>
+                <Link to='/SQUADS'><li className='nav-items hover-underline-animation'>SQUADS</li></Link>
+                <Link to='/EVENTS'><li className='nav-items hover-underline-animation'>EVENTS</li></Link>
+                <Link to='/PODCAST'><li className='nav-items hover-underline-animation'>PODCAST</li></Link>
                 <Link to='/LOGIN'><li className='nav-items icons'><FaUserCircle /></li></Link>
             </ul>
             {/* The links End here */}
