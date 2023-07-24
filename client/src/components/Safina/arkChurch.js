@@ -1,9 +1,9 @@
 import React from 'react'
-import Pastor from '../assets/pic/7.jpg'
-import Choir from '../assets/pic/2.jpg'
-import Dance from '../assets/pic/1.jpg'
-import Fun from '../assets/pic/17.jpg'
-import Playfully from '../assets/pic/4.jpg'
+import Pastor from '../../assets/pic/7.jpg'
+import Choir from '../../assets/pic/2.jpg'
+import Dance from '../../assets/pic/1.jpg'
+import Fun from '../../assets/pic/17.jpg'
+import Playfully from '../../assets/pic/4.jpg'
 
 function ArkChurch() {
     return (

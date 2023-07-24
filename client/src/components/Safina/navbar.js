@@ -1,8 +1,8 @@
 //Don't touch this code if you you don't know what it does
 import React, { useState } from 'react'
-import Logo from '../assets/logo-07.png'
-import './css/style.css'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Logo from '../../assets/logo/logo-07.png'
+import '../../css/style.css'
+import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa'
 import { ImCross } from 'react-icons/im'
 import { FaUserCircle } from 'react-icons/fa'

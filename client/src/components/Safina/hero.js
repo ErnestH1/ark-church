@@ -1,6 +1,5 @@
 import React from 'react'
-import '../components/css/hero.css'
-import HeroImg from '../assets/pic/hero.png'
+import HeroImg from '../../assets/pic/hero.png'
 function Hero() {
 
     return (
