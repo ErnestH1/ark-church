@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../components/navbar'
-import Carousel from '../components/carousel'
+import Navbar from '../../components/Safina/navbar'
+import Carousel from '../../components/Safina/carousel'
 
 function Squads() {
   return (

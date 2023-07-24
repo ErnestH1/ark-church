@@ -1,14 +1,14 @@
-import './App.css';
+import './css/App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Landingpage from '../src/screens/landingpage';
-import Sermons from '../src/screens/sermons';
-import Giving from '../src/screens/giving';
-import Events from '../src/screens/events';
-import Podcast from './screens/podcast';
-import Signup from '../src/screens/signup';
-import Login from './screens/login';
-import Squads from './screens/squads';
+import Landingpage from './screens/SafinaPages/landingpage';
+import Sermons from './screens/SafinaPages/sermons';
+import Giving from './screens/SafinaPages/giving';
+import Events from './screens/SafinaPages/events';
+import Podcast from './screens/SafinaPages/podcast';
+import Signup from './screens/SafinaPages/signup';
+import Login from './screens/SafinaPages/login';
+import Squads from './screens/SafinaPages/squads';
 
 function App() {
   return (

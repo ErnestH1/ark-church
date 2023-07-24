@@ -1,6 +1,6 @@
 import React from 'react'
-import footer from '../assets/logo-06.png'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import footer from '../../assets/logo/logo-06.png'
+import { Link } from 'react-router-dom';
 import { BsInstagram } from 'react-icons/bs'
 import { BsTelegram } from 'react-icons/bs'
 import { BsWhatsapp } from 'react-icons/bs'
@@ -16,7 +16,7 @@ function Footer() {
                     <div class="md:flex md:justify-between">
                         <div class="mb-6 md:mb-0">
                             <Link to='/'>
-                                <a href="#" class="flex items-center">
+                                <a href="" class="flex items-center">
                                     <img src={footer} class="h-28 mr-5" alt="Ark Youth Church" />
                                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
                                 </a>
