@@ -1,11 +1,12 @@
 import React from 'react'
-import Navbar from '../../components/Safina/navbar'
+// import Navbar from '../../components/Safina/navbar'
+import Safinabar from '../../components/SafinaTvcomp/safinabar'
 
 function Sermons() {
   return (
     <>
-    <Navbar/>
-      Sermons
+      <Safinabar/>
+
     </>
   )
 }
