@@ -16,7 +16,7 @@ function Footer() {
                     <div class="md:flex md:justify-between">
                         <div class="mb-6 md:mb-0">
                             <Link to='/'>
-                                <a href="" class="flex items-center">
+                                <a href="/" class="flex items-center">
                                     <img src={footer} class="h-28 mr-5" alt="Ark Youth Church" />
                                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
                                 </a>
@@ -49,10 +49,10 @@ function Footer() {
                                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                     <li class="mb-4">
-                                        <a href="#" class="hover:underline">Privacy Policy</a>
+                                        <a href="/" class="hover:underline">Privacy Policy</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                                        <a href="/" class="hover:underline">Terms &amp; Conditions</a>
                                     </li>
                                 </ul>
                             </div>
