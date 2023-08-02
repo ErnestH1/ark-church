@@ -22,6 +22,9 @@ function Navbar() {
                 <NavLinks />
             </ul>
             {/* Mobile navigation End */}
+            <div className='text-2xl md:hidden z-50' onClick={() => setOpen(!open)}>
+                <ion-icon name="menu"></ion-icon>
+            </div>
         </nav>
     )
 }
