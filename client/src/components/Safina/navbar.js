@@ -10,7 +10,7 @@ function Navbar() {
     return (
         <nav className='flex justify-between'>
             <a href='/'>
-                <img src={Logo} className="h-16 cursor-pointer md:h-14" alt="Ark youth Church logo" />
+                <img src={Logo} className="h-16 cursor-pointer " alt="Ark youth Church logo" />
             </a>
             {/* Here are the nav links */}
             <ul className='md:flex hidden items-center gap-4 mx-3'>
@@ -22,8 +22,8 @@ function Navbar() {
                 <NavLinks />
             </ul>
             {/* Mobile navigation End */}
-            <div className='text-2xl md:hidden z-50' onClick={() => setOpen(!open)}>
-                <ion-icon name="menu"></ion-icon>
+            <div className='text-2xl md:hidden z-50 my-4' onClick={() => setOpen(!open)}>
+                <ion-icon name="menu" className="h-4 w-4"></ion-icon>
             </div>
         </nav>
     )
