@@ -4,9 +4,9 @@ import axios from 'axios'
 
 function Main() {
     const [movies, setMovies] = useState([])
-    //This function changes the sermons after every reload
+    //This function changes the sermon after every reload
     const movie = movies[Math.floor(Math.random() * movies.length)]
-    //This function changes the sermons after every reload
+    //This function changes the sermon after every reload
 
     useEffect(() => {
         axios.get(requests.requestPopular).then((response) => {

@@ -1,6 +1,6 @@
 # ARK YOUTH CHURCH
 
-## Live Preview 
+## Live Preview
 
 - [Ark Youth Church Demo](https://ark-church-chi.vercel.app/)
 
@@ -13,36 +13,40 @@
 ### The app includes several user pages, including
 
 - [ ] landing page.
-![Signed Up](./src/assets/screenshots/)
----;
+      ![Signed Up](./src/assets/screenshots/)
+      ---;
 - [ ] Event page.
-![Signed Up](./src/assets/screenshots/)
-------------;
+      ![Signed Up](./src/assets/screenshots/)
+      ------------;
 - [ ] Squad page.
-![Signed Up](./src/assets/screenshots/)
----------;
+      ![Signed Up](./src/assets/screenshots/)
+      ---------;
 - [ ] About page.
-![Signed Up](./src/assets/screenshots/)
-------;
+      ![Signed Up](./src/assets/screenshots/)
+      ------;
 - [x] Login page.
-![Signed Up](./src/assets/screenshots/login.png)
----;
+      ![Signed Up](./src/assets/screenshots/login.png)
+      ---;
 - [x] Signup page.
-![Signed Up](./src/assets/screenshots/signup.png)
----;
+      ![Signed Up](./src/assets/screenshots/signup.png)
+      ---;
 - [ ] Contact Us page.
-![Signed Up](./src/assets/screenshots/)
+      ![Contact Us](./src/assets/screenshots/)
 
---------------------------------
+- [ ] Footer.
+      ![Footer](./src/assets/screenshots/)
+- [ ] Sermons page.
+      ![Sermons](./src/assets/screenshots/)
+
 #### It also includes
 
- An admin section where users with administrative privileges can add, edit, and delete.
+An admin section where users with administrative privileges can add edit, and delete  data from the database.
 
 - [ ] Admin video upload and delete page contents.
 - [ ] Admin podcast upload and delete page page contents.
 - [ ] Admin Events upload and delete page contents.
 
-# ARK-CHURCH BACKEND
+## ARK-CHURCH BACKEND
 
 The backend is built with Fast api and uses PostgreSQL as the database. It provides several API endpoints that the frontend uses to retrieve and manipulate data. The models used in the backend are:
 
@@ -111,8 +115,6 @@ Clone the repository:
 - [Collins Kinoti]()
 - [Aloo]()
 
-
-
 ## Conclusion
 
-*
+-
