@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Row() {
+function Row({ title, fetchURL }) {
 
     return (
         //This is a Row component
-        <div className='' >
-
-        </div>
+        <>
+            <h2 className='text-white font-bold md:text-xl p-4'>{title}</h2>
+        </>
         //This is a Row component
     )
 }
