@@ -13,13 +13,13 @@
 ### The app includes several user pages, including
 
 - [ ] landing page.
-      ![Signed Up](./client/src/assets/screenshots/)
+      ![Signed Up](./client/src/assets/screenshots/land.png)
       ---;
 - [ ] Event page.
-      ![Signed Up](./client/src/assets/screenshots/)
+      ![Signed Up](./client/src/assets/screenshots/event.png)
       ------------;
 - [ ] Squad page.
-      ![Signed Up](./client/src/assets/screenshots/)
+      ![Signed Up](./client/src/assets/screenshots/squad)
       ---------;
 - [ ] About page.
       ![Signed Up](./client/src/assets/screenshots/)
@@ -34,7 +34,7 @@
       ![Contact Us](./client/src/assets/screenshots/)
 
 - [ ] Footer.
-      ![Footer](./client/src/assets/screenshots/)
+      ![Footer](./client/src/assets/screenshots/footer.png)
 - [ ] Sermons page.
       ![Sermons](./client/src/assets/screenshots/)
 
