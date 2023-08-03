@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Logo1 from '../../assets/logo/logo-07.png'
 function Login() {
   return (
@@ -41,7 +41,7 @@ function Login() {
             </button>
 
             <div className="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
-              <a href="#">Forgot your password?</a>
+              <a href="/">Forgot your password?</a>
             </div>
 
             <div className="mt-3 text-xs flex justify-between items-center text-[#002D74]">
