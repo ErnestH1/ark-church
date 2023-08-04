@@ -27,9 +27,9 @@ function Main() {
             {/* For the Movie titles on the  */}
             {/* -------------------------------------------------------------------------- */}
             <div className='w-full h-full'>
-                <div className='absolute w-full h-[550px] bg-gradient-to-r from-black'>
+                {/* <div className='absolute w-full h-[550px] bg-gradient-to-r from-black'> */}
                     {/* This is the Gradient for the images to make it darker */}
-                </div>
+                {/* </div> */}
                 <img className='w-full h-full object-cover ' src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
                 <div className='absolute w-full top-[20%] p-4 md:p-8 '>
                     {/* For the Movie titles on the  */}
@@ -45,10 +45,10 @@ function Main() {
                     {/* Buttons and ... */}
                     {/* -------------------------------------------------------------------------- */}
                     {/* this p tag shows the date release */}
-                    <p className='text-gray-100 text-sm'>Released:{movie?.release_date}</p>
+                    <p className='text-black text-sm'>Released:{movie?.release_date}</p>
                     {/* this p tag shows the date release */}
                     {/* -------------------------------------------------------------------------- */}
-                    <p className='w-full md:max-[70%] lg:max-[35%] text-grey-200'>Description:{truncateString(movie?.overview, 150)}</p>
+                    <p className='w-full text-black md:max-[70%] lg:max-[35%] '>Description:{truncateString(movie?.overview, 150)}</p>
                     {/* this p tag shows the date release */}
                     {/* -------------------------------------------------------------------------- */}
 
