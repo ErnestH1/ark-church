@@ -40,7 +40,7 @@
 
 #### It also includes
 
-An admin section where users with administrative privileges can add edit, and delete  data from the database.
+An admin section where users with administrative privileges can add edit, and delete data from the database.
 
 - [ ] Admin video upload and delete page contents.
 - [ ] Admin podcast upload and delete page page contents.
@@ -105,15 +105,12 @@ Clone the repository:
 
 ## Authors
 
-- [Alex Tunui](https://github.com/AlexTanui)
 - [Ernest Hanson](https://github.com/ErnestH1)
 - [Casey Ochieng](https://github.com/caseyochieng)
 - [Andrew Kimani](https://github.com/Nexus-coder)
-- [Collins Koech](https://github.com/collinsvictor1818)
-- [Faith Moraa](https://github.com/the-datageek)
-- [Mark](http://github.com/Towerofdragons)
 - [Collins Kinoti]()
 - [Aloo]()
+- [Collins Kinoti]()
 
 ## Conclusion
 
