@@ -13,34 +13,34 @@
 ### The app includes several user pages, including
 
 - [ ] landing page.
-      ![Signed Up](./src/assets/screenshots/)
+      ![Signed Up](./client/src/assets/screenshots/land.png)
       ---;
 - [ ] Event page.
-      ![Signed Up](./src/assets/screenshots/)
+      ![Signed Up](./client/src/assets/screenshots/event.png)
       ------------;
 - [ ] Squad page.
-      ![Signed Up](./src/assets/screenshots/)
+      ![Signed Up](./client/src/assets/screenshots/squad)
       ---------;
 - [ ] About page.
-      ![Signed Up](./src/assets/screenshots/)
+      ![Signed Up](./client/src/assets/screenshots/)
       ------;
 - [x] Login page.
-      ![Signed Up](./src/assets/screenshots/login.png)
+      ![Signed Up](./client/src/assets/screenshots/login.png)
       ---;
 - [x] Signup page.
-      ![Signed Up](./src/assets/screenshots/signup.png)
+      ![Signed Up](./client/src/assets/screenshots/signup.png)
       ---;
 - [ ] Contact Us page.
-      ![Contact Us](./src/assets/screenshots/)
+      ![Contact Us](./client/src/assets/screenshots/)
 
 - [ ] Footer.
-      ![Footer](./src/assets/screenshots/)
+      ![Footer](./client/src/assets/screenshots/footer.png)
 - [ ] Sermons page.
-      ![Sermons](./src/assets/screenshots/)
+      ![Sermons](./client/src/assets/screenshots/)
 
 #### It also includes
 
-An admin section where users with administrative privileges can add edit, and delete data from the database.
+An admin section where users with administrative privileges can add edit, and delete  data from the database.
 
 - [ ] Admin video upload and delete page contents.
 - [ ] Admin podcast upload and delete page page contents.
@@ -110,8 +110,6 @@ Clone the repository:
 - [Andrew Kimani](https://github.com/Nexus-coder)
 - [Collins Kinoti]()
 - [Aloo]()
-- [Collins Kinoti]()
-- [Joshua Odhiambo]()
 
 ## Conclusion
 
