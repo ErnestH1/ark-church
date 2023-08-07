@@ -1,98 +1,56 @@
-
-from fastapi import APIRouter, Depends, File, UploadFile
-from mega import Mega
+import dropbox
+from fastapi import APIRouter, Depends, HTTPException, File, UploadFile, Form
 from sqlalchemy.orm import Session
-import os
-import mimetypes
-import tempfile
-
-
-from .models import Podcast
 from .database import get_db
-from .storage import email, password
+from .models import Podcast
+from .config import DROPBOX_ACCESS_TOKEN
+from pathlib import Path
+import os
+
+# Create a Dropbox client
+client = dropbox.Dropbox(DROPBOX_ACCESS_TOKEN)
 
 router = APIRouter(tags=["Podcasts"])
 
-ALLOWED_EXTENSIONS = ['.m4a', '.flac', '.mp3', '.wav', '.aac']
+# Function to upload a file to Dropbox
+def upload_file(file_path, destination_path):
+    with open(file_path, 'rb') as file:
+        response = client.files_upload(file.read(), destination_path)
+        print(f"Uploaded {file_path} to Dropbox as {response.name}")
 
-@router.post("/podcasts")
-def create_podcast(
-    title: str,
-    description: str,
-    podcast_file: UploadFile = File(...),
-    db: Session = Depends(get_db)
-):
-    # Get the file extension
-    file_extension = os.path.splitext(podcast_file.filename)[1]
+# Function to download a file from Dropbox
+def download_file(dropbox_path, local_path):
+    response = client.files_download_to_file(local_path, dropbox_path)
+    print(f"Downloaded {dropbox_path} from Dropbox to {local_path}")
 
-    # Check if the file extension is allowed
-    if file_extension.lower() not in ALLOWED_EXTENSIONS:
-        return {"error": "Invalid file type. Only M4A, FLAC, MP3, WAV, and AAC files are allowed."}
+@router.post("/upload-podcast/", status_code=201)
+def upload_podcast(file: UploadFile = File(...), title: str = Form(...), description: str = Form(...), db: Session = Depends(get_db)):
+    destination_path = f"/Dropbox/Podcasts/{file.filename}"
+    file_path = f"./uploaded_podcasts/{file.filename}"  # Save the podcast temporarily to the server
+    
+    # Create the directory if it doesn't exist
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
-    # Save the uploaded file to a temporary location
-    with tempfile.NamedTemporaryFile(delete=False) as temp_file:
-        temp_file.write(podcast_file.file.read())
-        temp_file_path = temp_file.name
+    with open(file_path, 'wb') as local_file:
+        local_file.write(file.file.read())  # Write the contents of the uploaded file to the local file
 
-    # Upload the file to Mega
-    mega = Mega()
-    m = mega.login(email, password)
-    m.upload(temp_file_path)
+    upload_file(file_path, destination_path)
 
-    # Remove the temporary file
-    os.remove(temp_file_path)
+    # Remove the temporarily saved local file after uploading
+    os.remove(file_path)
 
-    # Create the podcast record in the database
-    podcast = Podcast(
-        title=title,
-        description=description,
-        file_path=podcast_file.filename  # Store the filename as the file path
-    )
+    podcast = Podcast(title=title, description=description, file_path=destination_path)
     db.add(podcast)
     db.commit()
     db.refresh(podcast)
-    return podcast
 
+    return {"message": "Podcast uploaded successfully", "data": podcast}
 
-@router.get("/podcasts/{podcast_id}")
-def get_podcast(podcast_id: int, db: Session = Depends(get_db)):
+@router.put("/update-podcast/{podcast_id}")
+def update_podcast(podcast_id: int, title: str = Form(None), description: str = Form(None), db: Session = Depends(get_db)):
     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
     if not podcast:
-        return {"error": "Podcast not found"}
-
-    # Download file from Mega
-    m = Mega()
-    try:
-        m.login(email, password)  # Login to the Mega account
-        file_link = m.find(podcast.file_path)
-        if file_link:
-            m.download(file_link, f"downloads/{podcast_id}.mp3")
-            return podcast
-        else:
-            return {"error": "File not found on Mega"}
-    except Exception as e:
-        return {"error": f"Mega API error: {str(e)}"}
-
-
-
-@router.put("/podcasts/{podcast_id}")
-def update_podcast(
-    podcast_id: int,
-    title: str = None,
-    description: str = None,
-    podcast_file: UploadFile = File(None),
-    db: Session = Depends(get_db)
-):
-    podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
-    if not podcast:
-        return {"error": "Podcast not found"}
-
-    if podcast_file:
-        # Upload new file to Mega
-        file_path = f"uploads/{podcast_file.filename}"
-        m = Mega()
-        m.upload(podcast_file.file, file_path)
-        podcast.file_path = file_path
+        raise HTTPException(status_code=404, detail="Podcast not found")
 
     if title:
         podcast.title = title
@@ -101,154 +59,47 @@ def update_podcast(
 
     db.commit()
     db.refresh(podcast)
-    return podcast
-
+    return {"message": "Podcast updated successfully", "data": podcast}
 
 @router.delete("/podcasts/{podcast_id}")
 def delete_podcast(podcast_id: int, db: Session = Depends(get_db)):
     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
     if not podcast:
-        return {"error": "Podcast not found"}
+        raise HTTPException(status_code=404, detail="Podcast not found")
 
-    # Delete file from Mega
-    file_path = podcast.file_path
-    m = Mega()
-    m.delete(file_path)
+    # Delete the podcast file from Dropbox
+    try:
+        client.files_delete_v2(podcast.file_path)
+    except dropbox.exceptions.ApiError as e:
+        # Handle the case when the file is not found on Dropbox
+        if e.user_message_text.find("not_found") == -1:
+            raise HTTPException(status_code=500, detail="Error deleting podcast from Dropbox")
 
+    # Save a copy of the deleted podcast (optional)
+    # download_file(podcast.file_path, f"./downloaded_podcasts/{podcast.title}.mp3")
+
+    # Delete the podcast record from the database
     db.delete(podcast)
     db.commit()
 
-    return {"message": "Podcast deleted"}
+    return {"message": "Podcast deleted successfully"}
 
 
-@router.get("/podcasts")
-def fetch_allpodcasts(db: Session = Depends(get_db)):
-    return db.query(Podcast).all()
+@router.get("/list-podcasts/", status_code=200)
+def list_podcasts(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    podcasts = db.query(Podcast).offset(skip).limit(limit).all()
+    return {"data": podcasts}
 
+@router.get("/download-podcast/{podcast_id}", status_code=200)
+def download_podcast(podcast_id: int, db: Session = Depends(get_db)):
+    podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
+    if not podcast:
+        raise HTTPException(status_code=404, detail="Podcast not found")
 
-# from fastapi import APIRouter, Depends, File, UploadFile
-# from mega import Mega
-# from sqlalchemy.orm import Session
-# import os
-# import mimetypes
-# import tempfile
+    # Get the path to the user's "Downloads" directory
+    downloads_dir = os.path.expanduser("~/Downloads")
+    local_path = os.path.join(downloads_dir, f"{podcast.title}.mp3")
 
-# from .models import Podcast
-# from .database import get_db
-# from .storage import email, password
+    download_file(podcast.file_path, local_path)
 
-# router = APIRouter(tags=["Podcasts"])
-
-# ALLOWED_EXTENSIONS = ['.m4a', '.flac', '.mp3', '.wav', '.aac']
-
-# @router.post("/podcasts")
-# def create_podcast(
-#     title: str,
-#     description: str,
-#     podcast_file: UploadFile = File(...),
-#     db: Session = Depends(get_db)
-# ):
-#     # Get the file extension
-#     file_extension = os.path.splitext(podcast_file.filename)[1]
-
-#     # Check if the file extension is allowed
-#     if file_extension.lower() not in ALLOWED_EXTENSIONS:
-#         return {"error": "Invalid file type. Only M4A, FLAC, MP3, WAV, and AAC files are allowed."}
-
-#     # Save the uploaded file to a temporary location
-#     with tempfile.NamedTemporaryFile(delete=False) as temp_file:
-#         temp_file.write(podcast_file.file.read())
-#         temp_file_path = temp_file.name
-
-#     # Upload the file to Mega
-#     mega = Mega()
-#     m = mega.login(email, password)
-#     mega_file = m.upload(temp_file_path)
-
-#     # Remove the temporary file
-#     os.remove(temp_file_path)
-
-#     # Create the podcast record in the database
-#     podcast = Podcast(
-#         title=title,
-#         description=description,
-#         file_id=mega_file.get('h'),  # Store the Mega file ID
-#         file_name=podcast_file.filename  # Store the original file name
-#     )
-#     db.add(podcast)
-#     db.commit()
-#     db.refresh(podcast)
-#     return podcast
-
-
-# @router.get("/podcasts/{podcast_id}")
-# def get_podcast(podcast_id: int, db: Session = Depends(get_db)):
-#     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
-#     if not podcast:
-#         return {"error": "Podcast not found"}
-
-#     # Download file from Mega
-#     m = Mega()
-#     try:
-#         m.login(email, password)  # Login to the Mega account
-#         file_link = m.get_upload_link(podcast.file_id)
-#         if file_link:
-#             return {"podcast": podcast, "file_link": file_link}
-#         else:
-#             return {"error": "File not found on Mega"}
-#     except Exception as e:
-#         return {"error": f"Mega API error: {str(e)}"}
-
-
-# @router.put("/podcasts/{podcast_id}")
-# def update_podcast(
-#     podcast_id: int,
-#     title: str = None,
-#     description: str = None,
-#     podcast_file: UploadFile = File(None),
-#     db: Session = Depends(get_db)
-# ):
-#     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
-#     if not podcast:
-#         return {"error": "Podcast not found"}
-
-#     if podcast_file:
-#         # Upload new file to Mega
-#         mega = Mega()
-#         m = mega.login(email, password)
-#         mega_file = m.upload(podcast_file.file)
-#         podcast.file_id = mega_file.get('h')  # Update the Mega file ID
-
-#     if title:
-#         podcast.title = title
-#     if description:
-#         podcast.description = description
-
-#     db.commit()
-#     db.refresh(podcast)
-#     return podcast
-
-
-# @router.delete("/podcasts/{podcast_id}")
-# def delete_podcast(podcast_id, db: Session = Depends(get_db)):
-#     podcast = db.query(Podcast).filter(Podcast.id == podcast_id).first()
-#     if not podcast:
-#         return {"error": "Podcast not found"}
-
-#     # Delete file from Mega
-#     m = Mega()
-#     try:
-#         m.login(email, password)  # Login to the Mega account
-#         m.delete(podcast.file_id)
-#     except Exception as e:
-#         return {"error": f"Mega API error: {str(e)}"}
-
-#     db.delete(podcast)
-#     db.commit()
-
-#     return {"message": "Podcast deleted"}
-
-
-# @router.get("/podcasts")
-# def fetch_all_podcasts(db: Session = Depends(get_db)):
-#     return db.query(Podcast).all()
+    return {"message": "Podcast downloaded successfully"}
