@@ -19,16 +19,13 @@ function NavLinks() {
     },
     {
       name: "EVENTS",
-      link: "/EVENTS'"
+      link: "/EVENTS"
     },
     {
       name: "PODCAST",
       link: "/PODCAST"
     },
-    {
-      name: "LOGIN",
-      link: "/LOGIN",
-    }
+
 
   ]
 
