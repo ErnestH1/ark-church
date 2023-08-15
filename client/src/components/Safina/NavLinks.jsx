@@ -26,7 +26,6 @@ function NavLinks() {
       link: "/PODCAST"
     },
 
-
   ]
 
   return (
@@ -35,7 +34,6 @@ function NavLinks() {
         Links.map((link, i) => (
           <li key={i} className='font-medium hover:text-Primary'>
             <a href={link.link}>{link.name}</a>
-            {/* <Link to={link.link}>{link.name}</Link> */}
           </li>
         ))
       }
