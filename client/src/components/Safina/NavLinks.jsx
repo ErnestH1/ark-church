@@ -19,16 +19,12 @@ function NavLinks() {
     },
     {
       name: "EVENTS",
-      link: "/EVENTS'"
+      link: "/EVENTS"
     },
     {
       name: "PODCAST",
       link: "/PODCAST"
     },
-    {
-      name: "LOGIN",
-      link: "/LOGIN",
-    }
 
   ]
 
@@ -38,7 +34,6 @@ function NavLinks() {
         Links.map((link, i) => (
           <li key={i} className='font-medium hover:text-Primary'>
             <a href={link.link}>{link.name}</a>
-            {/* <Link to={link.link}>{link.name}</Link> */}
           </li>
         ))
       }
