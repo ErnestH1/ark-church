@@ -1,5 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/Safina/navbar'
+import Footer from '../../components/Safina/footer'
+
 
 function Events() {
     return (
@@ -77,6 +79,7 @@ function Events() {
                                     alt='Nice'
                                 />
                             </div>
+                            {/* The slide */}
                             <div className="self-start relative flex flex-col mr-24 w-[364px] shrink-0 items-center">
                                 <div className="whitespace-nowrap text-5xl font-['Inter'] font-semibold absolute top-[109px] left-12 h-16 w-[267px]">
                                     MAIN EXP
@@ -128,9 +131,9 @@ function Events() {
                                 </div>
                             </div>
                         </div>
-                        <div className="text-5xl font-['Inter'] self-center w-40">Footer</div>
                     </div>
                 </div>
+                <Footer />
             </div>
         </>
     )
