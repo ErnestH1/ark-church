@@ -12,7 +12,7 @@ function Main() {
             setMovies(response.data.results)
         })
     }, [])
-    console.log("Hey There i have a message for you")
+    console.log("Hey There i have a message for you God loves you")
     //Here is where the truncating function begins
     const truncateString = (str, num) => {
         if (str?.length > num) {
