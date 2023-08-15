@@ -9,30 +9,22 @@ function Events() {
             <Navbar />
             <div className="flex flex-col w-full" id="NewRootRoot">
                 <div className="overflow-hidden bg-white flex flex-col" id="Desktop">
-                    <div
-                        className="bg-[url(https://file.rendit.io/n/q1wX6sn8kCWVylrrcci1.png)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col pt-6 pb-24"
-                        id="Image1"
-                    >
+                    <div className="bg-[url(https://file.rendit.io/n/q1wX6sn8kCWVylrrcci1.png)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col pt-6 pb-24" id="Image1" >
                         <div className="bg-[#d9d9d9] h-12 shrink-0 mb-6 ml-10 mr-8 rounded-lg" />
+                        {/* The First Component */}
                         <div className="relative flex flex-col items-start mb-6 ml-20 pt-16 pb-[177px]">
                             <div
-                                className="w-3/5 h-[609px] bg-[url(https://file.rendit.io/n/ih5eyGEzbAMlyH5z0rji.png)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat absolute top-0 left-[605px] flex flex-col"
-                                id="IMG"
-                            >
+                                className="w-3/5 h-[609px] bg-[url(https://file.rendit.io/n/ih5eyGEzbAMlyH5z0rji.png)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat absolute top-0 left-[605px] flex flex-col" id="IMG" >
                                 <div className="bg-[rgba(13,_4,_4,_0.54)] mr-[-132px] h-[609px] shrink-0" />
                             </div>
-                            <div
-                                className="text-[128px] font-['Inter'] relative w-1/2 h-full"
-                                id="LETSPARTYFORJESUS3"
-                            >
+                            <div className="text-[128px] font-['Inter'] relative w-1/2 h-full" id="LETSPARTYFORJESUS3" >
                                 LET’S{" "}
                                 <div className="font-semibold contents" id="LETSPARTYFORJESUS">
                                     PARTY FO
                                 </div>
                                 <div
                                     className="font-semibold text-[#fffefe] contents"
-                                    id="LETSPARTYFORJESUS1"
-                                >
+                                    id="LETSPARTYFORJESUS1">
                                     R<br />
                                 </div>
                                 <div className="font-bold contents" id="LETSPARTYFORJESUS2">
@@ -44,14 +36,10 @@ function Events() {
                             EVENTS
                         </div>
                         <div
-                            className="bg-[url(https://file.rendit.io/n/QzteZ71X4L0K9yHOzuEL.png)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row gap-1 h-[457px] shrink-0 items-center mb-24 ml-20 mr-16 pl-16 pr-12"
-                            id="OCWJW"
-                        >
+                            className="bg-[url(https://file.rendit.io/n/QzteZ71X4L0K9yHOzuEL.png)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row gap-1 h-[457px] shrink-0 items-center mb-24 ml-20 mr-16 pl-16 pr-12" id="OCWJW">
                             <div className="relative flex flex-col pt-px w-1/2">
                                 <img
-                                    src="https://file.rendit.io/n/0w3Yhx9ACanaF5vGgCiy.svg"
-                                    className="w-[548px] h-[307px] absolute top-0 left-px"
-                                />
+                                    src="https://file.rendit.io/n/0w3Yhx9ACanaF5vGgCiy.svg" alt='a' className="w-[548px] h-[307px] absolute top-0 left-px" />
                                 <div className="bg-black/56.00000000000001 relative mr-2 h-[305px] shrink-0" />
                             </div>
                             <div className="flex flex-col gap-1 w-1/2">
@@ -87,16 +75,19 @@ function Events() {
                                 <img
                                     src="https://file.rendit.io/n/ub43FsWbzxdlU2CDjBTt.svg"
                                     className="relative"
+                                    alt='Nice'
                                 />
                             </div>
                             <img
                                 src="https://file.rendit.io/n/UA9EZq4Qme2pYitmGtAH.svg"
                                 className=""
+                                alt='Nice'
                             />
                             <img
                                 src="https://file.rendit.io/n/MZzU7q5pMQbfZ2ggpTAB.svg"
                                 className="mb-20 w-12 shrink-0"
                                 id="Arrowrightsolid"
+                                alt='Nice'
                             />
                         </div>
                         <div className="flex flex-row gap-48 items-center mb-12 ml-20 mr-32">
@@ -122,7 +113,7 @@ function Events() {
                                 src="https://file.rendit.io/n/H6h4JWdrJZ9ti8YWu2j8.png"
                                 alt='ark church'
                                 className="w-[1440px] h-[412px] absolute top-1 left-4"
-                                id="OCWJW1"/>
+                                id="OCWJW1" />
                             <div className="bg-[rgba(24,_22,_64,_0.83)] relative flex flex-col h-[411px] shrink-0 items-end pt-40 pb-32 pr-[351px]">
                                 <div className="text-center whitespace-nowrap text-5xl font-['Inter'] font-semibold text-white w-3/5">
                                     BIBLE VERSE
