@@ -17,21 +17,15 @@ function Events() {
                             {/* Fix Text */}
                         </div>
                         {/* The First Component Banner*/}
-
                         <Banner1 />
-
                         {/* End Component Banner */}
                         {/* ------------------------------------------------------------------------------------------------ */}
                         {/* The second Component Banner*/}
-
                         <Banner2 />
-
                         {/* The End second Component Banner*/}
                         {/* ------------------------------------------------------------------------------------------------ */}
                         {/* The  Third Component Banner*/}
-
                         <Banner3 />
-
                         {/* The End Third Component Banner*/}
                         {/* ------------------------------------------------------------------------------------------------ */}
                     </div>

@@ -16,7 +16,7 @@ function Main() {
     //Here is where the truncating function begins
     const truncateString = (str, num) => {
         if (str?.length > num) {
-            return str.slice(0, num) + '...'
+            return str.slice(0, num) + '... 💯';
         } else {
             return str;
         }
@@ -33,10 +33,9 @@ function Main() {
                 <img className='w-full h-full object-cover ' src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
                 <div className='absolute w-full top-[20%] p-4 md:p-8 '>
                     {/* For the Movie titles on the  */}
-                    <h1 className='text-3xl md:text-5xl'>{movie?.title}</h1>
+                    <h1 className='text-3xl md:text-5xl '>{movie?.title}</h1>
                     {/* For the Movie titles on the  */}
                     {/* -------------------------------------------------------------------------- */}
-
                     {/* Buttons and ... */}
                     <div className='my-4'>
                         <button className='border bg-gray-300 text-black border-gray-300 py-3 px-5 '>Play</button>
@@ -51,7 +50,6 @@ function Main() {
                     <p className='w-full text-black md:max-[70%] lg:max-[35%] '>Description:{truncateString(movie?.overview, 150)}</p>
                     {/* this p tag shows the date release */}
                     {/* -------------------------------------------------------------------------- */}
-
                 </div>
             </div>
             {/* the outer div */}
