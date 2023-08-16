@@ -38,8 +38,8 @@ function Main() {
                     {/* -------------------------------------------------------------------------- */}
                     {/* Buttons and ... */}
                     <div className='my-4'>
-                        <button className='border bg-gray-300 text-black border-gray-300 py-3 px-5 '>Play</button>
-                        <button className='border text-black border-gray-300 py-3 px-5 ml-4 '>Watch Later</button>
+                        <button className='border bg-gray-300 text-black border-gray-300 py-3 px-5 hover:bg-white '>Play</button>
+                        <button className='border text-black border-gray-300 py-3 px-5 ml-4  hover:bg-slate-300'>Watch Later</button>
                     </div>
                     {/* Buttons and ... */}
                     {/* -------------------------------------------------------------------------- */}
