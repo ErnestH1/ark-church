@@ -1,0 +1,315 @@
+.desktop {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.desktop .overlap-group-wrapper {
+    background-color: #ffffff;
+    border: 1px none;
+    height: 2558px;
+    overflow: hidden;
+    width: 1440px;
+}
+
+.desktop .overlap-group {
+    height: 2558px;
+    left: -16px;
+    position: relative;
+    width: 1588px;
+}
+
+.desktop .image {
+    height: 2558px;
+    left: 16px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+}
+
+.desktop .text-wrapper {
+    color: #000000;
+    font-family: "Istok Web", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    left: 1078px;
+    letter-spacing: -1.6px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 1665px;
+}
+
+.desktop .div {
+    color: #000000;
+    font-family: "Istok Web", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    left: 634px;
+    letter-spacing: -1.6px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 1656px;
+}
+
+.desktop .ocwjw {
+    height: 457px;
+    left: 94px;
+    object-fit: cover;
+    position: absolute;
+    top: 844px;
+    width: 1296px;
+}
+
+.desktop .rectangle {
+    background-color: #d9d9d9;
+    height: 237px;
+    left: 94px;
+    position: absolute;
+    top: 1410px;
+    width: 364px;
+}
+
+.desktop .RISING-STARS {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 55.2px;
+    font-weight: 600;
+    left: 174px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 1467px;
+}
+
+.desktop .text-wrapper-2 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 55.2px;
+    font-weight: 600;
+    left: 614px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 1507px;
+}
+
+.desktop .rectangle-2 {
+    background-color: #d9d9d9;
+    height: 400px;
+    left: 0;
+    position: absolute;
+    top: 1900px;
+    width: 1472px;
+}
+
+.desktop .img {
+    height: 412px;
+    left: 16px;
+    object-fit: cover;
+    position: absolute;
+    top: 1894px;
+    width: 1440px;
+}
+
+.desktop .text-wrapper-3 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 55.2px;
+    font-weight: 700;
+    left: 634px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 739px;
+}
+
+.desktop .IMG {
+    height: 609px;
+    left: 699px;
+    object-fit: cover;
+    position: absolute;
+    top: 103px;
+    width: 757px;
+}
+
+.desktop .mask-group {
+    height: 307px;
+    left: 166px;
+    position: absolute;
+    top: 919px;
+    width: 548px;
+}
+
+.desktop .rectangle-3 {
+    background-color: #05113c;
+    border-radius: 20px;
+    height: 81px;
+    left: 605px;
+    position: absolute;
+    top: 1763px;
+    width: 270px;
+}
+
+.desktop .text-wrapper-4 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 55.2px;
+    font-weight: 400;
+    left: 650px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 2395px;
+}
+
+.desktop .text-wrapper-5 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 55.2px;
+    font-weight: 900;
+    left: 748px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 985px;
+}
+
+.desktop .mask-group-2 {
+    height: 237px;
+    left: 1022px;
+    position: absolute;
+    top: 1410px;
+    width: 364px;
+}
+
+.desktop .arrow-right-solid {
+    height: 56px;
+    left: 1391px;
+    position: absolute;
+    top: 1508px;
+    width: 55px;
+}
+
+.desktop .text-wrapper-6 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 36px;
+    font-weight: 600;
+    left: 552px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 1781px;
+    width: 366px;
+}
+
+.desktop .rectangle-4 {
+    background-color: #0c03038a;
+    height: 609px;
+    left: 699px;
+    position: absolute;
+    top: 103px;
+    width: 889px;
+}
+
+.desktop .LET-s-PARTY-FOR {
+    color: transparent;
+    font-family: "Inter", Helvetica;
+    font-size: 128px;
+    font-weight: 400;
+    left: 94px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 172px;
+    width: 725px;
+}
+
+.desktop .span {
+    color: #000000;
+}
+
+.desktop .text-wrapper-7 {
+    color: #000000;
+    font-weight: 600;
+}
+
+.desktop .text-wrapper-8 {
+    color: #fffdfd;
+    font-weight: 600;
+}
+
+.desktop .text-wrapper-9 {
+    color: #000000;
+    font-weight: 800;
+}
+
+.desktop .mask-group-3 {
+    height: 237px;
+    left: 563px;
+    position: absolute;
+    top: 1399px;
+    width: 364px;
+}
+
+.desktop .enriching-faith {
+    color: #ffffff;
+    font-family: "Istok Web", Helvetica;
+    font-size: 40px;
+    font-weight: 400;
+    left: 719px;
+    letter-spacing: -2px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 1058px;
+    width: 619px;
+}
+
+.desktop .p {
+    color: #000000;
+    font-family: "Istok Web", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    left: 100px;
+    letter-spacing: -1.6px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 1646px;
+    width: 346px;
+}
+
+.desktop .rectangle-5 {
+    background-color: #0000008f;
+    height: 305px;
+    left: 165px;
+    position: absolute;
+    top: 921px;
+    width: 542px;
+}
+
+.desktop .rectangle-6 {
+    background-color: #181640d4;
+    height: 411px;
+    left: 0;
+    position: absolute;
+    top: 1890px;
+    width: 1472px;
+}
+
+.desktop .rectangle-7 {
+    background-color: #d9d9d9;
+    border-radius: 13px;
+    height: 48px;
+    left: 54px;
+    position: absolute;
+    top: 27px;
+    width: 1370px;
+}

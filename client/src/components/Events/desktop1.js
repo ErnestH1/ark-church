@@ -1,12 +1,11 @@
 import React from 'react'
 
-function Banner1() {
+function Desktop1() {
     return (
         <>
-
 
         </>
     )
 }
 
-export default Banner1
+export default Desktop1
